@@ -1,13 +1,14 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const greeting = "Hello, world! From Goerli!";
-  const greeter = await ethers.deployContract("Subscription", [
-    greeting,
+  const subscriptionPrice = "Hello, world!";
+  const subscriptionDuration = 1
+  const sub = await ethers.deployContract("Subscription", [
+    subscriptionPrice,
   ]);
-  await greeter.waitForDeployment();
+  await sub.waitForDeployment();
   console.log(
-    `Greeter with greeting "${greeting}" deployed to ${greeter.target}`,
+    `Subcritipon service contract with price of "${subscriptionDuration}", and duration of "${subscriptionDuration}" deployed to ${sub.target}`,
   );
 }
 
